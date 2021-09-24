@@ -2,6 +2,7 @@
   display: grid;
   grid-template: repeat(2, auto) / 1fr;
   padding: 1rem 0;
+  width: 100%;
 }
 
 .fields {
@@ -12,6 +13,7 @@
   align-items: start;
   padding: 1rem 0 0 0;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .section > div + div {
@@ -37,7 +39,8 @@ textarea {
   resize: none;
 }
 
-h2 {
+h2,
+h3 {
   margin: 0.5rem 0;
   text-align: left;
   line-height: 1;

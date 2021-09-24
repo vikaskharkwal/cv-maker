@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import './App.css';
 import CVForm from './components/CVForm';
+import CVPreview from './components/CVPreview';
 
 class App extends Component {
   constructor(props) {
@@ -21,8 +22,8 @@ class App extends Component {
       degrees: [],
       degree() {
         return {
-          institute: '',
           course: '',
+          institute: '',
           from: '',
           to: '',
         };
@@ -30,8 +31,8 @@ class App extends Component {
       jobs: [],
       job() {
         return {
-          company: '',
           position: '',
+          company: '',
           from: '',
           to: '',
         };
@@ -71,12 +72,12 @@ class App extends Component {
         }),
       };
     });
-    console.log(this.state);
   };
 
   render() {
     return (
       <div className='App'>
+        <h1 className='header'>Curriculum Vitae</h1>
         <CVForm
           degrees={this.state.degrees}
           jobs={this.state.jobs}
@@ -85,6 +86,14 @@ class App extends Component {
           deleteField={this.deleteField}
           handleChange={this.handleChange}
         />
+        <div className='previewPrint'>
+          <CVPreview
+            general={this.state.general}
+            degrees={this.state.degrees}
+            jobs={this.state.jobs}
+          />
+        </div>
+        <div className='footer'>Made by berserkwal</div>
       </div>
     );
   }

@@ -30,6 +30,7 @@ class InputText extends Component {
           id={id}
           onChange={this.handleChange}
           value={this.state.value}
+          autoComplete='off'
         />
       </div>
     );

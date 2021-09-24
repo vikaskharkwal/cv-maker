@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import BasicInfoForm from './BasicInfoForm';
-import './CVForm.css';
+import './CV.css';
 import EducationInfoForm from './ExperienceSectionForm';
 import './InfoForm.css';
 
 class CVForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     return (
-      <div className='cvForm'>
-        <h1>Curriculum Vitae</h1>
-        <form>
+      <div className='cvBox cvForm'>
+        <form className='content'>
           <div className='section'>
             <h2>General Information</h2>
             <BasicInfoForm
