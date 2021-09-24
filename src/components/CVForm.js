@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import BasicInfoForm from './BasicInfoForm';
-import './CV.css';
+// import './CV.css';
 import EducationInfoForm from './ExperienceSectionForm';
-import './InfoForm.css';
+// import './InfoForm.css';
 
 class CVForm extends Component {
   render() {

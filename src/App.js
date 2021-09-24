@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import './App.css';
+// import './App.css';
 import CVForm from './components/CVForm';
 import CVPreview from './components/CVPreview';
 
@@ -87,11 +87,16 @@ class App extends Component {
           handleChange={this.handleChange}
         />
         <div className='previewPrint'>
+          <h2>Preview</h2>
           <CVPreview
             general={this.state.general}
             degrees={this.state.degrees}
             jobs={this.state.jobs}
           />
+          <button onClick={window.print}>
+            <i class='fas fa-print'></i>
+            <span>Print</span>
+          </button>
         </div>
         <div className='footer'>Made by berserkwal</div>
       </div>

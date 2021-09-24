@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './CV.css';
+// import './CV.css';
 
 class CVPreview extends Component {
   constructor(props) {
