@@ -1,0 +1,85 @@
+.section {
+  display: grid;
+  grid-template: repeat(2, auto) / 1fr;
+  padding: 1rem 0;
+}
+
+.fields {
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(2, auto);
+  grid-auto-rows: auto;
+  align-items: start;
+  padding: 1rem 0 0 0;
+  gap: 0.5rem;
+}
+
+.section > div + div {
+  border-top: 1px solid #8884;
+}
+
+.fields > *:not(h2, button) {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  justify-items: flex-start;
+  font-family: inherit;
+  display: grid;
+}
+
+.fields > .inputSummary {
+  grid-column: 1/-1;
+}
+
+textarea {
+  font-family: inherit;
+  width: 100%;
+  resize: none;
+}
+
+h2 {
+  margin: 0.5rem 0;
+  text-align: left;
+  line-height: 1;
+  width: max-content;
+}
+
+.fields input {
+  font-size: 1rem;
+  /* min-width: 200px; */
+}
+
+.fields label {
+  text-transform: capitalize;
+  padding: 0.125rem;
+  font-size: 0.8rem;
+}
+/* 
+.educationInfo {
+  padding: 1rem;
+} */
+
+.deleteButton,
+.addButton {
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 0.25rem;
+  /* justify-self: center; */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
