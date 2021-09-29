@@ -10,6 +10,7 @@ body {
 h1,
 h2,
 h3 {
+  margin: 0;
   font-weight: 600;
 }
 
@@ -26,17 +27,22 @@ code {
     'header header'
     'cvform cvpreview'
     'footer footer';
-  place-items: center;
+  justify-content: center;
+  align-items: start;
   gap: 3rem;
+  width: 100%;
 }
 
 .header {
   grid-area: header;
-}
-.cvForm {
-  grid-area: cvform;
+  padding: 1rem;
 }
 
+.formContainer {
+  grid-area: cvform;
+  display: grid;
+  gap: 1rem;
+}
 .previewPrint {
   grid-area: cvpreview;
   display: grid;
@@ -44,6 +50,14 @@ code {
 }
 .footer {
   grid-area: footer;
+}
+
+a {
+  background-color: black;
+  color: white;
+  padding: 0.125rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
 }
 
 button {
@@ -59,11 +73,13 @@ button {
   cursor: pointer;
   transition: background-color 0.25s ease;
 }
-button:hover {
+button:hover,
+a:hover {
   background-color: rgb(61, 61, 61);
 }
 
-button:active {
+button:active,
+a:active {
   background-color: rgb(34, 34, 34);
 }
 
@@ -144,7 +160,7 @@ button:active {
 
 .top {
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .timeSpan {
@@ -239,8 +255,9 @@ input[type='number'] {
     margin: 0;
     padding: 0;
   }
+
   .header,
-  .cvBox.cvForm,
+  .formContainer,
   .footer,
   button {
     display: none;
@@ -254,6 +271,10 @@ input[type='number'] {
 
   .cvBox.cvPreview > .content {
     padding: 0;
+  }
+
+  .previewPrint {
+    grid-column: 1/-1;
   }
 
   .previewPrint > h2 {

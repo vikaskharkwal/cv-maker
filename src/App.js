@@ -2,6 +2,8 @@ import { Component } from 'react';
 // import './App.css';
 import CVForm from './components/CVForm';
 import CVPreview from './components/CVPreview';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 class App extends Component {
   constructor(props) {
@@ -77,15 +79,18 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <h1 className='header'>Curriculum Vitae</h1>
-        <CVForm
-          degrees={this.state.degrees}
-          jobs={this.state.jobs}
-          general={this.state.general}
-          addField={this.addField}
-          deleteField={this.deleteField}
-          handleChange={this.handleChange}
-        />
+        <Header />
+        <div className='formContainer'>
+          <h2>Form</h2>
+          <CVForm
+            degrees={this.state.degrees}
+            jobs={this.state.jobs}
+            general={this.state.general}
+            addField={this.addField}
+            deleteField={this.deleteField}
+            handleChange={this.handleChange}
+          />
+        </div>
         <div className='previewPrint'>
           <h2>Preview</h2>
           <CVPreview
@@ -94,11 +99,11 @@ class App extends Component {
             jobs={this.state.jobs}
           />
           <button onClick={window.print}>
-            <i class='fas fa-print'></i>
+            <i className='fas fa-print'></i>
             <span>Print</span>
           </button>
         </div>
-        <div className='footer'>Made by berserkwal</div>
+        <Footer />
       </div>
     );
   }
