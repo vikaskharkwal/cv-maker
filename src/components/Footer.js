@@ -10,7 +10,10 @@ class Footer extends Component {
       <footer className='footer'>
         <p>
           Made by{' '}
-          <a target='_blank' href='https://berserkwal.github.io'>
+          <a
+            target='_blank'
+            rel='noreferrer'
+            href='https://berserkwal.github.io'>
             berserkwal
           </a>
         </p>
