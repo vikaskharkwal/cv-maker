@@ -19,14 +19,14 @@ function App() {
   ]);
 
   const [degrees, setDegrees] = useState([]);
-  const [degree, setDegree] = useState({
+  const [degree] = useState({
     course: '',
     institute: '',
     from: '',
     to: '',
   });
   const [jobs, setJobs] = useState([]);
-  const [job, setJob] = useState({
+  const [job] = useState({
     position: '',
     company: '',
     from: '',
@@ -34,37 +34,50 @@ function App() {
   });
 
   const addField = (formSet) => {
-    this.setState((state) => {
-      return {
-        [formSet]: state[formSet].concat(
-          this.state[formSet.slice(0, formSet.length - 1)]()
-        ),
-      };
-    });
+    if (formSet === 'jobs') {
+      setJobs(jobs.concat({ ...job }));
+    } else {
+      setDegrees(degrees.concat({ ...degree }));
+    }
   };
 
   const deleteField = (index, formSet) => {
-    this.setState((state) => {
-      return {
-        [formSet]: state[formSet].filter((item, ind) => {
-          return index !== ind;
-        }),
-      };
-    });
-    console.log('deleting field');
+    if (formSet === 'jobs') {
+      setJobs(jobs.filter((item, ind) => index !== ind));
+    } else {
+      setDegrees(degrees.filter((item, ind) => index !== ind));
+    }
   };
 
   const handleChange = (index, id, value, formSet) => {
-    this.setState((state) => {
-      return {
-        [formSet]: state[formSet].map((item, ind) => {
+    if (formSet === 'jobs') {
+      setJobs(
+        jobs.map((item, ind) => {
           if (index === ind) {
             item[id] = value;
           }
           return item;
-        }),
-      };
-    });
+        })
+      );
+    } else if (formSet === 'degrees') {
+      setDegrees(
+        degrees.map((item, ind) => {
+          if (index === ind) {
+            item[id] = value;
+          }
+          return item;
+        })
+      );
+    } else {
+      setGeneral(
+        general.map((item, ind) => {
+          if (index === ind) {
+            item[id] = value;
+          }
+          return item;
+        })
+      );
+    }
   };
 
   return (
@@ -73,21 +86,17 @@ function App() {
       <div className='formContainer'>
         <h2>Form</h2>
         <CVForm
-          degrees={this.state.degrees}
-          jobs={this.state.jobs}
-          general={this.state.general}
-          addField={this.addField}
-          deleteField={this.deleteField}
-          handleChange={this.handleChange}
+          degrees={degrees}
+          jobs={jobs}
+          general={general}
+          addField={addField}
+          deleteField={deleteField}
+          handleChange={handleChange}
         />
       </div>
       <div className='previewPrint'>
         <h2>Preview</h2>
-        <CVPreview
-          general={this.state.general}
-          degrees={this.state.degrees}
-          jobs={this.state.jobs}
-        />
+        <CVPreview general={general} degrees={degrees} jobs={jobs} />
         <button onClick={window.print}>
           <i className='fas fa-print'></i>
           <span>Print</span>

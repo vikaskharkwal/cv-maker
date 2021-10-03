@@ -1,39 +1,24 @@
-import React, { Component } from 'react';
+import { useState, useEffect } from 'react';
 
-class InputText extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: '' };
-  }
+function InputText(props) {
+  const { handleChange, index, id, formSet } = props;
+  const [value, setValue] = useState('');
 
-  handleChange = (event) => {
-    this.setState({
-      value: event.target.value,
-    });
-    setTimeout(() => {
-      this.props.handleChange(
-        this.props.index,
-        this.props.id,
-        this.state.value,
-        this.props.formSet
-      );
-    }, 1);
+  const handleInputChange = (event) => {
+    setValue(event.target.value);
   };
-  render() {
-    const { id } = this.props;
-    console.log();
-    return (
-      <div className={`input${id.slice(0, 1).toUpperCase() + id.slice(1)}`}>
-        <label htmlFor={id}>{id}</label>
-        <textarea
-          id={id}
-          onChange={this.handleChange}
-          value={this.state.value}
-          rows='5'
-        />
-      </div>
-    );
-  }
+
+  useEffect(() => {
+    handleChange(index, id, value, formSet);
+  }, [value]);
+
+  console.log();
+  return (
+    <div className={`input${id.slice(0, 1).toUpperCase() + id.slice(1)}`}>
+      <label htmlFor={id}>{id}</label>
+      <textarea id={id} onChange={handleInputChange} value={value} rows='5' />
+    </div>
+  );
 }
 
 export default InputText;

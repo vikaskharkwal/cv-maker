@@ -141,10 +141,13 @@ a:active {
   padding: 0;
   margin: 0;
 }
+.summary > p {
+  padding: 0 2rem;
+}
 
 .expSection {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   grid-auto-rows: 1fr;
 }
 
@@ -156,6 +159,14 @@ a:active {
   text-align: start;
   display: flex;
   flex-direction: column;
+  margin-inline: 1rem;
+  padding: 1rem;
+  padding-block: 0.55rem;
+  /* width: max-content; */
+}
+
+.expSection > .exp + .exp {
+  border-top: 1px solid #1112;
 }
 
 .top {
