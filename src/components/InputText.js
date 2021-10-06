@@ -1,16 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useValueHandler } from '../hooks/valueHandler';
 
 function InputText(props) {
   const { handleChange, index, id, formSet, type } = props;
   const [value, setValue] = useState('');
 
+  useValueHandler(index, id, value, formSet, handleChange);
+
   function handleInputChange(event) {
     setValue(event.target.value);
   }
-
-  useEffect(() => {
-    handleChange(index, id, value, formSet);
-  }, [value]);
 
   return (
     <div className={`input${id.slice(0, 1).toUpperCase() + id.slice(1)}`}>
