@@ -3,8 +3,8 @@ function Footer() {
     <footer className='footer'>
       <p>
         Made by{' '}
-        <a target='_blank' rel='noreferrer' href='https://berserkwal.github.io'>
-          berserkwal
+        <a target='_blank' rel='noreferrer' href='/'>
+          Vikas Kharkwal
         </a>
       </p>
     </footer>
